@@ -1,7 +1,9 @@
 package com.inventry.service;
 
+import com.inventry.bean.DbNotification;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.producer.KafkaProducer;
 
 import java.time.Duration;
 
@@ -17,6 +19,8 @@ public class TradeConsumerService {
             @Override
             public void run(){
                 factory.close();
+                DbNotificationQueueProducer.closeSharedKafka();
+
                 System.out.println("Consumer got closed");
             }
         });
