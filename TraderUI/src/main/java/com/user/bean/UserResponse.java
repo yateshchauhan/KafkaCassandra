@@ -1,4 +1,4 @@
-package com.trader.bean;
+package com.user.bean;
 
 import org.springframework.stereotype.Component;
 

@@ -14,7 +14,7 @@
     <dependencies>
 
         <dependency>
-            <artifactId>KafkaCasandra</artifactId>
+            <artifactId>tradingModule</artifactId>
             <groupId>com.kafka.cassandra</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

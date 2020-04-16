@@ -1,5 +1,6 @@
 package service;
 
+import com.trading.bean.Trade;
 import queue.TradePublisher;
 
 public class TraderWindowServiceImpl implements TraderWindowService{

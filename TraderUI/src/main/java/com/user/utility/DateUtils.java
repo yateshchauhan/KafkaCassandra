@@ -1,14 +1,25 @@
-package com.utility;
+package com.user.utility;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtils {
 
     public static Date converLocalDateToDate(LocalDate date){
         return convertDate(convertDate(date));
+    }
+
+    public static LocalDate convertDateToLocalDate(Date date){
+
+        if(date != null){
+            return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        }
+        return null;
     }
 
     public static String convertDate(Date date){

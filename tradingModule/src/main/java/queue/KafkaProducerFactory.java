@@ -1,13 +1,13 @@
 package queue;
 
 
-import utility.TradeSerializer;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import utility.TradeSerializer;
 
 import java.util.Map;
 import java.util.Properties;
@@ -48,14 +48,15 @@ public class KafkaProducerFactory {
         return producer;
     }
 
-    public static <K,V> KafkaProducer<K,V> getProducer(String userId){
+    /*public static <K,V> KafkaProducer<K,V> getProducer(String userId){
 
         KafkaProducer<K,V> producer = null;
 
-        if(StringUtils.isNotBlank(userId))
+        if(StringUtils.isNotBlank(userId)) {
             producer = producerMap.get(userId);
+        }
 
         return producer;
-    }
+    }*/
 
 }

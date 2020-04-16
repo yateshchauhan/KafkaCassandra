@@ -1,8 +1,10 @@
-package com.trader.bean;
+package com.user.bean;
+
 
 import org.springframework.stereotype.Component;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
-import java.util.Date;
 
 @Component
 public class User {
@@ -10,12 +12,13 @@ public class User {
     private String name;
     private String type;
     private String id;
-    private Date creationDate;
+    private LocalDate creationDate;
 
     public String getName() {
         return name;
     }
 
+    @NotNull(message = "name should not be null")
     public void setName(String name) {
         this.name = name;
     }
@@ -24,6 +27,7 @@ public class User {
         return type;
     }
 
+    @NotNull(message = "Type should not be null")
     public void setType(String type) {
         this.type = type;
     }
@@ -32,15 +36,16 @@ public class User {
         return id;
     }
 
+    @NotNull(message = "Id is not null")
     public void setId(String id) {
         this.id = id;
     }
 
-    public Date getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 

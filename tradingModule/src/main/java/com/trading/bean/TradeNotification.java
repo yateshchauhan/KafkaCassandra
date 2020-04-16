@@ -1,4 +1,4 @@
-package service;
+package com.trading.bean;
 
 public class TradeNotification {
 

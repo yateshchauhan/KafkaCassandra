@@ -1,7 +1,7 @@
 package com.inventry.utility;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.inventry.service.Trade;
+import com.trading.bean.Trade;
 import org.apache.kafka.common.serialization.Deserializer;
 import java.util.Map;
 

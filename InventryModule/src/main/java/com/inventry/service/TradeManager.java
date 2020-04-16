@@ -1,5 +1,6 @@
 package com.inventry.service;
 
+import com.trading.bean.Trade;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -1,4 +1,4 @@
-package service;
+package com.trading.bean;
 
 import java.math.BigDecimal;
 import java.util.Date;

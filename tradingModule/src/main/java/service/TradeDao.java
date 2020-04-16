@@ -1,13 +1,15 @@
-package com.inventry.service;
+package service;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Session;
-import com.inventry.bean.TradeEnum;
-import service.Trade;
+import com.trading.bean.Trade;
+import com.trading.bean.TradeEnum;
 import utility.DateUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TradeDao {
@@ -41,6 +43,30 @@ public class TradeDao {
         ResultSet resultSet = session.execute(cql);
 
         System.out.println("DB schema created");
+    }
+
+
+    public List<Trade> getTrades(){
+        String cql = "select TradeId,TradeEvent,TradeType,StartDate,EndDate,CleanPrice,Principal,Quantity,TradeDate from Trade";
+        List<Trade> tradeList = new ArrayList<>();
+        Session session = cluster.connect(keySpace);
+        ResultSet resultSet = session.execute(cql);
+        if(resultSet != null && resultSet.wasApplied()){
+            resultSet.forEach((row)->{
+                Trade.Builder trade = new Trade.Builder();
+                trade.setTradeId(row.getString(TradeEnum.TradeId.columnName));
+                trade.setTradeEvent(row.getString(TradeEnum.TradeEvent.columnName));
+                trade.setTradeType(row.getString(TradeEnum.TradeType.columnName));
+                trade.setStartDate(DateUtils.convertDate(row.getString(TradeEnum.StartDate.columnName)));
+                trade.setEndDate(DateUtils.convertDate(row.getString(TradeEnum.EndDate.columnName)));
+                trade.setOpenCash(row.getDecimal(TradeEnum.CleanPrice.columnName));
+                trade.setTradePrincipal(row.getDecimal(TradeEnum.Principal.columnName));
+                trade.setQty(row.getDecimal(TradeEnum.Quantity.columnName));
+                trade.setTradeDate(DateUtils.convertDate(row.getString(TradeEnum.TradeDate.columnName)));
+                tradeList.add(trade.build());
+            });
+        }
+        return tradeList;
     }
 
     public boolean addTrade(Trade trade){

@@ -1,4 +1,7 @@
 package com.bean;
 
-public class ProductModel {
+import org.springframework.hateoas.RepresentationModel;
+
+public class ProductModel extends RepresentationModel<Product> {
+
 }

@@ -1,10 +1,8 @@
 package com.inventry.service;
 
-import com.inventry.bean.DbNotification;
+import com.trading.bean.Trade;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.producer.KafkaProducer;
-
 import java.time.Duration;
 
 public class TradeConsumerService {
@@ -12,9 +10,9 @@ public class TradeConsumerService {
     public static void main(String[] args) {
         System.out.println("Inventory consumer is up now");
 
-        final TopicConsumerFactory<String,Trade> factory = new TopicConsumerFactory();
+        final TopicConsumerFactory<String, Trade> factory = new TopicConsumerFactory();
 
-        KafkaConsumer<String,Trade> kafkaConsumer = factory.createKafkaConsumer();
+        KafkaConsumer<String, Trade> kafkaConsumer = factory.createKafkaConsumer();
         Runtime.getRuntime().addShutdownHook(new Thread(){
             @Override
             public void run(){

@@ -1,8 +1,10 @@
 package com.inventry.service;
 
 import com.inventry.bean.DbNotification;
+import com.trading.bean.Trade;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import service.TradeDao;
 
 import java.util.function.Supplier;
 

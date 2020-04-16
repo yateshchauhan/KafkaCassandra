@@ -1,9 +1,10 @@
 package service;
 
-import queue.TradePublisher;
-import utility.DateUtils;
+import com.trading.bean.Trade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import queue.TradePublisher;
+import utility.DateUtils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -26,7 +27,7 @@ public class Trader {
             BufferedReader reader = getReader();
             System.out.println("Plz do enter your userId");
             String userId = reader.readLine();
-            tradeTradePublisher = new TradePublisher(userId);
+            tradeTradePublisher = TradePublisher.getInstance();
             while (true) {
 
                 System.out.println("Do you want to book new trade (Yes/No)");
@@ -42,11 +43,11 @@ public class Trader {
                 }
 
             }
-            tradeTradePublisher.closeAckMonitor();
+            tradeTradePublisher.closeKafkaProducer();
         }catch (Exception e){
             System.out.println("Failed while booking trade, "+e);
             if(tradeTradePublisher != null){
-                tradeTradePublisher.closeAckMonitor();
+                tradeTradePublisher.closeKafkaProducer();
             }
         }
 

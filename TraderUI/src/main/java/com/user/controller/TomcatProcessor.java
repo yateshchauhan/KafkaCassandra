@@ -6,9 +6,9 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"com.user.controller","com.user.exception"})
-public class UserProcessor {
+public class TomcatProcessor {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserProcessor.class);
+        SpringApplication.run(TomcatProcessor.class);
     }
 }

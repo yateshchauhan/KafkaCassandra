@@ -1,4 +1,4 @@
-package com.inventry.bean;
+package com.trading.bean;
 
 public enum TradeEnum {
 

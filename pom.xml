@@ -9,6 +9,13 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <modules>
+        <module>TraderUI</module>
+        <module>InventryModule</module>
+        <module>tradingModule</module>
+        <module>spring-boot-examples</module>
+    </modules>
+
     <build>
         <plugins>
             <plugin>
@@ -21,10 +28,6 @@
             </plugin>
         </plugins>
     </build>
-    <modules>
-        <module>InventryModule</module>
-    </modules>
-
     <dependencies>
 
         <!-- Casandra library -->
